@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "simplycataclysm:cursium_chakram",
+    "simplycataclysm:cursium_scythe",
+    "simplycataclysm:cursium_rapier",
+    "simplycataclysm:cursium_glaive",
+    "simplycataclysm:cursium_warglaive",
+    "simplycataclysm:cursium_spear",
+    "simplycataclysm:cursium_sai",
+    "simplycataclysm:cursium_katana",
+    "simplycataclysm:cursium_cutlass",
+    "simplycataclysm:cursium_longsword",
+    "simplycataclysm:cursium_claymore",
+    "simplycataclysm:cursium_twinblade",
+    "simplycataclysm:cursium_greathammer",
+    "simplycataclysm:cursium_greataxe",
+    "simplycataclysm:cursium_halberd"
+  ]
+}

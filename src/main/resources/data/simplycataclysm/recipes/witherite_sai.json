@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "c:wood_sticks"
+    },
+    "X": {
+      "item": "cataclysm:witherite_ingot"
+    }
+  },
+  "pattern": [
+    "  ",
+    " X",
+    "# "
+  ],
+  "result": {
+    "item": "simplycataclysm:witherite_sai"
+  }
+}

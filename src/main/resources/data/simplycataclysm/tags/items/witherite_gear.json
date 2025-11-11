@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "simplycataclysm:witherite_chakram",
+    "simplycataclysm:witherite_scythe",
+    "simplycataclysm:witherite_rapier",
+    "simplycataclysm:witherite_glaive",
+    "simplycataclysm:witherite_warglaive",
+    "simplycataclysm:witherite_spear",
+    "simplycataclysm:witherite_sai",
+    "simplycataclysm:witherite_katana",
+    "simplycataclysm:witherite_cutlass",
+    "simplycataclysm:witherite_longsword",
+    "simplycataclysm:witherite_claymore",
+    "simplycataclysm:witherite_twinblade",
+    "simplycataclysm:witherite_greathammer",
+    "simplycataclysm:witherite_greataxe",
+    "simplycataclysm:witherite_halberd"
+  ]
+}

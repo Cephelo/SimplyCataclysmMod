@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "c:wood_sticks"
+    },
+    "X": {
+      "item": "cataclysm:black_steel_ingot"
+    }
+  },
+  "pattern": [
+    "  X",
+    " #X",
+    "#  "
+  ],
+  "result": {
+    "item": "simplycataclysm:black_steel_glaive"
+  }
+}

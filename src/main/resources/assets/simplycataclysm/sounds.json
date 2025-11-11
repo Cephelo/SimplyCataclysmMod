@@ -1,0 +1,54 @@
+{
+  "accursed_rage_max": {    
+    "subtitle": "sounds.simplycataclysm.accursed_rage_max",
+    "sounds": [
+      {
+        "name": "cataclysm:maledictus_short_roar",
+        "type": "event",
+        "pitch": 1,
+        "volume": 0.5
+      }
+    ]
+  },
+  "cursium_hit": {
+    "sounds": [
+      {
+        "name": "cataclysm:hammertime",
+        "type": "event",
+        "pitch": 1,
+        "volume": 0.4
+      }
+    ]
+  },
+  "ignitium_hit": {
+    "sounds": [
+      {
+        "name": "cataclysm:ignis_hurt",
+        "type": "event",
+        "pitch": 1.25,
+        "volume": 0.4
+      }
+    ]
+  },
+  "mecha_pulse_shockwave": {
+    "subtitle": "sounds.simplycataclysm.mecha_pulse_shockwave",
+    "sounds": [
+      {
+        "name": "cataclysm:harbinger_charge",
+        "type": "event",
+        "pitch": 1,
+        "volume": 0.42
+      }
+    ]
+  },
+  "witherite_hit": {
+    "sounds": [
+      {
+        "name": "cataclysm:emp_activated",
+        "type": "event",
+        "pitch": 1,
+        "volume": 0.4
+      }
+    ]
+  }
+}

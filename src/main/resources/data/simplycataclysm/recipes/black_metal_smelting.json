@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "simplycataclysm:black_steel_gear"
+  },
+  "result": "cataclysm:black_steel_nugget",
+  "experience": 1.0,
+  "cookingtime": 250
+}

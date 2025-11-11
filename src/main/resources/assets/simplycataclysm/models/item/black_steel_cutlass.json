@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "simplycataclysm:item/black_steel_cutlass"
+  }
+}

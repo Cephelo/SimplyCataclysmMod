@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "simplycataclysm:ancient_metal_chakram",
+    "simplycataclysm:ancient_metal_scythe",
+    "simplycataclysm:ancient_metal_rapier",
+    "simplycataclysm:ancient_metal_glaive",
+    "simplycataclysm:ancient_metal_warglaive",
+    "simplycataclysm:ancient_metal_spear",
+    "simplycataclysm:ancient_metal_sai",
+    "simplycataclysm:ancient_metal_katana",
+    "simplycataclysm:ancient_metal_cutlass",
+    "simplycataclysm:ancient_metal_longsword",
+    "simplycataclysm:ancient_metal_claymore",
+    "simplycataclysm:ancient_metal_twinblade",
+    "simplycataclysm:ancient_metal_greathammer",
+    "simplycataclysm:ancient_metal_greataxe",
+    "simplycataclysm:ancient_metal_halberd"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "simplycataclysm:ignitium_chakram",
+    "simplycataclysm:ignitium_scythe",
+    "simplycataclysm:ignitium_rapier",
+    "simplycataclysm:ignitium_glaive",
+    "simplycataclysm:ignitium_warglaive",
+    "simplycataclysm:ignitium_spear",
+    "simplycataclysm:ignitium_sai",
+    "simplycataclysm:ignitium_katana",
+    "simplycataclysm:ignitium_cutlass",
+    "simplycataclysm:ignitium_longsword",
+    "simplycataclysm:ignitium_claymore",
+    "simplycataclysm:ignitium_twinblade",
+    "simplycataclysm:ignitium_greathammer",
+    "simplycataclysm:ignitium_greataxe",
+    "simplycataclysm:ignitium_halberd"
+  ]
+}

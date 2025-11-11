@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "simplycataclysm:witherite_gear"
+  },
+  "result": "cataclysm:witherite_ingot",
+  "experience": 1.0,
+  "cookingtime": 100
+}
