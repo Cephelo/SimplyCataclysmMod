@@ -43,8 +43,8 @@ public class ModEffects {
     public static class BlazingBrandCustomEffect extends MobEffect {
         public BlazingBrandCustomEffect(MobEffectCategory category, int color) {
             super(category, color);
-            this.addAttributeModifier(Attributes.ARMOR, "417bf0ed-86a0-4b00-b766-6346bb1ad7e5", -1.0D * SCConfig.blazingBrandArmorReduction, AttributeModifier.Operation.MULTIPLY_TOTAL);
-            this.addAttributeModifier(Attributes.ARMOR_TOUGHNESS, "eb65ed6a-8778-46c8-b6cb-29ea5b16721c", -1.0D * SCConfig.blazingBrandArmorToughnessReduction, AttributeModifier.Operation.MULTIPLY_TOTAL);
+            this.addAttributeModifier(Attributes.ARMOR, "31f5a158-63cf-4201-a260-2dc9368fa4bb", -1.0D * SCConfig.blazingBrandArmorReduction, AttributeModifier.Operation.MULTIPLY_TOTAL);
+            this.addAttributeModifier(Attributes.ARMOR_TOUGHNESS, "e4e1dccc-6477-4e95-8303-e98a7c33f83f", -1.0D * SCConfig.blazingBrandArmorToughnessReduction, AttributeModifier.Operation.MULTIPLY_TOTAL);
         }
 
         @Override
