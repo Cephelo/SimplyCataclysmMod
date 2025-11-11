@@ -43,7 +43,7 @@ public class CursiumSwordItem extends SwordItem implements IMeleeDamageCallback 
         return super.hurtEnemy(stack, target, attacker);
     }
 
-    private float calculateRage(LivingEntity attacker, LivingEntity target) {
+    private static float calculateRage(LivingEntity attacker, LivingEntity target) {
         if (attacker != null) {
             try {
                 var rageEffect = ModEffects.ACCURSED_RAGE.get();

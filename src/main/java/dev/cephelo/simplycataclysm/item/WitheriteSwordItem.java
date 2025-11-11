@@ -47,7 +47,7 @@ public class WitheriteSwordItem extends SwordItem implements IMeleeDamageCallbac
         return super.hurtEnemy(stack, target, attacker);
     }
 
-    private float chargeStunPulse(LivingEntity attacker, LivingEntity target) {
+    private static float chargeStunPulse(LivingEntity attacker, LivingEntity target) {
         if (attacker != null) {
             try {
                 // Return if player has cooldown effect
@@ -102,7 +102,7 @@ public class WitheriteSwordItem extends SwordItem implements IMeleeDamageCallbac
         return 0;
     }
     
-    private void applyMechaEffects(LivingEntity target, LivingEntity attacker) {
+    private static void applyMechaEffects(LivingEntity target, LivingEntity attacker) {
         if (attacker != null) {
             try {
                 if (target != null && Math.random() <= SCConfig.mechaSmiteChance) {

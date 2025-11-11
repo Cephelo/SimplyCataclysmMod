@@ -39,9 +39,6 @@ public class SimplyCataclysm
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, SCConfig.SPEC);
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Register the commonSetup method for modloading
-        //modEventBus.addListener(this::commonSetup);
-
         ModEffects.register(modEventBus);
         SCModSounds.register(modEventBus);
         ModItems.register(modEventBus);
@@ -50,18 +47,4 @@ public class SimplyCataclysm
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
-
-//    private void commonSetup(final FMLCommonSetupEvent event)
-//    {
-//        // Some common setup code
-//        LOGGER.info("HELLO FROM COMMON SETUP");
-//
-//        if (SCConfig.logDirtBlock)
-//            LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
-//
-//        LOGGER.info(SCConfig.magicNumberIntroduction + SCConfig.magicNumber);
-//
-//        //SCConfig.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
-//    }
-
 }
