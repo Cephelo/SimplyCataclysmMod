@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "simplycataclysm:black_steel_chakram",
+    "simplycataclysm:black_steel_scythe",
+    "simplycataclysm:black_steel_rapier",
+    "simplycataclysm:black_steel_glaive",
+    "simplycataclysm:black_steel_warglaive",
+    "simplycataclysm:black_steel_spear",
+    "simplycataclysm:black_steel_sai",
+    "simplycataclysm:black_steel_katana",
+    "simplycataclysm:black_steel_cutlass",
+    "simplycataclysm:black_steel_longsword",
+    "simplycataclysm:black_steel_claymore",
+    "simplycataclysm:black_steel_twinblade",
+    "simplycataclysm:black_steel_greathammer",
+    "simplycataclysm:black_steel_greataxe",
+    "simplycataclysm:black_steel_halberd"
+  ]
+}
