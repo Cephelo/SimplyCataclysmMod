@@ -95,6 +95,5 @@
   "tooltip.simplycataclysm.trait.mecha_pulse.desc": "Can stack Pulse Charge on the attacker.  Upon reaching a sufficient amplifier, a shockwave stuns and deals damage to the target.",
   "tooltip.simplycataclysm.trait.mecha_smite": "Mecha Smite",
   "tooltip.simplycataclysm.trait.mecha_smite.desc": "Ignites targets and inflicts them with Wither.  Can grant Regeneration when attacking while below half health.",
-  "tooltip.simplycataclysm.trait.unbreakable": "Unbreakable",
-  "tooltip.simplycataclysm.trait.unbreakable.desc": "Has no durability, never breaks"
+  "tooltip.simplycataclysm.trait.fireproof_unbreakable": "- Fireproof & Unbreakable -"
 }

@@ -97,6 +97,7 @@ public class CursiumSwordItem extends SwordItem implements IMeleeDamageCallback 
 
         if (Screen.hasShiftDown()) {
             tooltipComponents.add(Component.translatable("tooltip.simplycataclysm.trait.accursed_rage.desc").withStyle(ModItems.descformat));
+            tooltipComponents.add(Component.translatable("tooltip.simplycataclysm.trait.fireproof_unbreakable").withStyle(ModItems.descformat));
         } else tooltipComponents.add(Component.translatable("tooltip.simplycataclysm.view_trait_tooltip").withStyle(ModItems.descformat));
     }
 }

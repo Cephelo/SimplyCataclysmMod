@@ -135,6 +135,7 @@ public class WitheriteSwordItem extends SwordItem implements IMeleeDamageCallbac
 
         if (Screen.hasShiftDown()) {
             tooltipComponents.add(Component.translatable("tooltip.simplycataclysm.trait.mecha_smite.desc").withStyle(ModItems.descformat));
+            tooltipComponents.add(Component.translatable("tooltip.simplycataclysm.trait.fireproof_unbreakable").withStyle(ModItems.descformat));
         } else tooltipComponents.add(Component.translatable("tooltip.simplycataclysm.view_trait_tooltip").withStyle(ModItems.descformat));
     }
 }

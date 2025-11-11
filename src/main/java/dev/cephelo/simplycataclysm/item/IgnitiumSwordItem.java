@@ -90,6 +90,7 @@ public class IgnitiumSwordItem extends SwordItem {
 
         if (Screen.hasShiftDown()) {
             tooltipComponents.add(Component.translatable("tooltip.simplycataclysm.trait.blazing_brand.desc").withStyle(ModItems.descformat));
+            tooltipComponents.add(Component.translatable("tooltip.simplycataclysm.trait.fireproof_unbreakable").withStyle(ModItems.descformat));
         } else tooltipComponents.add(Component.translatable("tooltip.simplycataclysm.view_trait_tooltip").withStyle(ModItems.descformat));
     }
 }
