@@ -65,11 +65,11 @@ public class SCConfig
 
         ANCIENT_METAL_DAMAGE = BUILDER
                 .comment(" Attack Damage Modifier for Ancient Metal weapons.  Requires restart.")
-                .defineInRange("ancientMetalDamageModifier", 3, -10000, 10000);
+                .defineInRange("ancientMetalDamageModifier", 0, -10000, 10000);
 
         ANCIENT_METAL_SPEED = BUILDER
                 .comment(" Attack Speed Modifier for Ancient Metal weapons.  Requires restart.")
-                .defineInRange("ancientMetalSpeedModifier", 3, -10000, 10000);
+                .defineInRange("ancientMetalSpeedModifier", 0, -10000, 10000);
 
         BLACK_STEEL_DAMAGE = BUILDER
                 .comment(" Attack Damage Modifier for Black Steel weapons.  Requires restart.")

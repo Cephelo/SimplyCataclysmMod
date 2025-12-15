@@ -8,7 +8,7 @@ import net.sweenus.simplyswords.util.HelperMethods;
 
 public class AncientMetalSwordItem extends SwordItem {
     public AncientMetalSwordItem(int attackDamage, float attackSpeed) {
-        super(Tooltier.ANCIENT_METAL, attackDamage + SCConfig.ancientMetalDamageModifier, attackSpeed + SCConfig.ancientMetalSpeedModifier, (new Item.Properties()));
+        super(Tooltier.ANCIENT_METAL, attackDamage + 3 + SCConfig.ancientMetalDamageModifier, attackSpeed + SCConfig.ancientMetalSpeedModifier, (new Item.Properties()));
     }
 
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
