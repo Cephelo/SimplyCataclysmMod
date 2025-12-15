@@ -65,11 +65,11 @@ public class SCConfig
 
         ANCIENT_METAL_DAMAGE = BUILDER
                 .comment(" Attack Damage Modifier for Ancient Metal weapons.  Requires restart.")
-                .defineInRange("ancientMetalDamageModifier", 0, -10000, 10000);
+                .defineInRange("ancientMetalDamageModifier", 3, -10000, 10000);
 
         ANCIENT_METAL_SPEED = BUILDER
                 .comment(" Attack Speed Modifier for Ancient Metal weapons.  Requires restart.")
-                .defineInRange("ancientMetalSpeedModifier", 0, -10000, 10000);
+                .defineInRange("ancientMetalSpeedModifier", 3, -10000, 10000);
 
         BLACK_STEEL_DAMAGE = BUILDER
                 .comment(" Attack Damage Modifier for Black Steel weapons.  Requires restart.")
@@ -110,7 +110,7 @@ public class SCConfig
 
         ACCURSED_RAGE_CHANCE = BUILDER
                 .comment(" Chance on hit for Cursium weapons to stack the Accursed Rage effect on the user.  Set to 0 to disable.")
-                .defineInRange("accursedRageChance", 0.66, 0.0, 1.0);
+                .defineInRange("accursedRageChance", 0.5, 0.0, 1.0);
 
         ACCURSED_RAGE_EXTRA_DAMAGE = BUILDER
                 .comment(" Additional damage attackers do with Cursium weapons per level of Accursed Rage.")

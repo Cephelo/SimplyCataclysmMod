@@ -17,8 +17,7 @@ public class LivingHurtHandler {
         float dmgDealt = ev.getAmount();
         LivingEntity target = ev.getEntity();
         if (dmgDealt != 0.0F && !source.is(DamageTypeTags.IS_PROJECTILE) && !source.is(DamageTypeTags.IS_FIRE) && !source.is(DamageTypeTags.IS_EXPLOSION) && (source.getMsgId().equals("player") || source.getMsgId().equals("mob"))) {
-            if (source.getDirectEntity() == source.getEntity() && source.getEntity() instanceof LivingEntity && target != null) {
-                LivingEntity attacker = (LivingEntity) source.getEntity();
+            if (source.getDirectEntity() == source.getEntity() && target != null && source.getEntity() instanceof LivingEntity attacker) {
                 ItemStack attackerStack = attacker.getMainHandItem();
                 if (!attackerStack.isEmpty()) {
                     Item attackerItem = attackerStack.getItem();

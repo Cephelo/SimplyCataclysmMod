@@ -1,13 +1,13 @@
 {
   "type": "minecraft:smithing_transform",
   "base": {
-    "item": "simplyswords:netherite_chakram"
+    "item": "simplyswords:netherite_claymore"
   },
   "addition": {
     "item": "cataclysm:ignitium_ingot"
   },
   "result": {
-    "item": "simplycataclysm:ignitium_chakram"
+    "item": "simplycataclysm:ignitium_claymore"
   },
   "template": {
     "item": "cataclysm:ignitium_upgrade_smithing_template"

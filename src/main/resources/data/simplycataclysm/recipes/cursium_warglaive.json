@@ -1,13 +1,13 @@
 {
   "type": "minecraft:smithing_transform",
   "base": {
-    "item": "simplyswords:netherite_chakram"
+    "item": "simplyswords:netherite_warglaive"
   },
   "addition": {
     "item": "cataclysm:cursium_ingot"
   },
   "result": {
-    "item": "simplycataclysm:cursium_chakram"
+    "item": "simplycataclysm:cursium_warglaive"
   },
   "template": {
     "item": "cataclysm:cursium_upgrade_smithing_template"
