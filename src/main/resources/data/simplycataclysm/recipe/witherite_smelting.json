@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "simplycataclysm:witherite_gear"
+  },
+  "result": {
+  	"id": "cataclysm:witherite_ingot"
+  },
+  "experience": 1.0,
+  "cookingtime": 250
+}

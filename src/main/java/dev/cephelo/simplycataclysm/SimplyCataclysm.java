@@ -12,7 +12,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.common.CreativeModeTabRegistry;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -27,7 +27,7 @@ public class SimplyCataclysm
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SC_WEAPONS_TAB = CREATIVE_MODE_TABS.register("sc_weapons", () -> CreativeModeTab.builder()
-            .withTabsBefore(SimplySwords.SIMPLYSWORDS.getKey())
+            .withTabsBefore(CreativeModeTabRegistry.getName(SimplySwords.SIMPLYSWORDS.value()))
             .icon(() -> ModItems.IGNITIUM_CHAKRAM.get().getDefaultInstance())
             .title(Component.translatable("itemGroup.simplycataclysm.sc_weapons"))
             .displayItems((parameters, output) -> {
@@ -37,14 +37,11 @@ public class SimplyCataclysm
 
     public SimplyCataclysm(IEventBus modEventBus, ModContainer modContainer)
     {
-        modContainer.registerConfig(ModConfig.Type.SERVER, SCConfig.SPEC);
+        modContainer.registerConfig(ModConfig.Type.STARTUP, SCConfig.SPEC);
 
         ModEffects.register(modEventBus);
         SCModSounds.register(modEventBus);
         ModItems.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
-
-        // Register ourselves for server and other game events we are interested in
-        NeoForge.EVENT_BUS.register(this);
     }
 }

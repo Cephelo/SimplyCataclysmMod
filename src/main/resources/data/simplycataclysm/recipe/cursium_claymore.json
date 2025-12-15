@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "simplyswords:netherite_claymore"
+  },
+  "addition": {
+    "item": "cataclysm:cursium_ingot"
+  },
+  "result": {
+    "id": "simplycataclysm:cursium_claymore"
+  },
+  "template": {
+    "item": "cataclysm:cursium_upgrade_smithing_template"
+  }
+}

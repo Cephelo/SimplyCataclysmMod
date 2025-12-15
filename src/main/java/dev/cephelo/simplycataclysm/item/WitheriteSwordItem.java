@@ -104,7 +104,7 @@ public class WitheriteSwordItem extends SwordItem implements IMeleeDamageCallbac
             try {
                 if (target != null && Math.random() <= SCConfig.MECHA_SMITE_CHANCE.get()) {
                     if (SCConfig.MECHA_SMITE_WITHER_DURATION.get() > 0) target.addEffect(new MobEffectInstance(MobEffects.WITHER, SCConfig.MECHA_SMITE_WITHER_DURATION.get(), SCConfig.MECHA_SMITE_WITHER_AMP.get()));
-                    if (SCConfig.MECHA_SMITE_FIRE_DURATION.get() > 0) target.igniteForTicks(SCConfig.MECHA_SMITE_FIRE_DURATION.get());
+                    if (SCConfig.MECHA_SMITE_FIRE_DURATION.get() > 0) target.igniteForTicks(SCConfig.MECHA_SMITE_FIRE_DURATION.get() * 20);
                     if (SCConfig.CUSTOM_SOUNDS.get()) attacker.level().playSeededSound(null, target.getX(), target.getY(), target.getZ(),
                             SCModSounds.WITHERITE_HIT.get(), SoundSource.PLAYERS, 1f, SCConfig.getRandomPitch(), 0);
                 }

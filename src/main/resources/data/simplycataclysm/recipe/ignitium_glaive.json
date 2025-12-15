@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "simplyswords:netherite_glaive"
+  },
+  "addition": {
+    "item": "cataclysm:ignitium_ingot"
+  },
+  "result": {
+    "id": "simplycataclysm:ignitium_glaive"
+  },
+  "template": {
+    "item": "cataclysm:ignitium_upgrade_smithing_template"
+  }
+}

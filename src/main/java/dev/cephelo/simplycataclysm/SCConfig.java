@@ -6,8 +6,8 @@ public class SCConfig
 {
     public static final ModConfigSpec.BooleanValue
             MECHA_SMITE_REGEN_THRESHOLD_TYPE,
-            CUSTOM_SOUNDS,
-            USE_SPARTAN_EFFECTS;
+            CUSTOM_SOUNDS;
+            //USE_SPARTAN_EFFECTS;
 
     public static final ModConfigSpec.DoubleValue
             ACCURSED_RAGE_CHANCE,
@@ -61,7 +61,7 @@ public class SCConfig
 
         ANCIENT_METAL_DAMAGE = BUILDER
                 .comment(" Attack Damage Modifier for Ancient Metal weapons.  Requires restart.")
-                .defineInRange("ancientMetalDamageModifier", 0, -10000, 10000);
+                .defineInRange("ancientMetalDamageModifier", 3, -10000, 10000);
 
         ANCIENT_METAL_SPEED = BUILDER
                 .comment(" Attack Speed Modifier for Ancient Metal weapons.  Requires restart.")
@@ -69,7 +69,7 @@ public class SCConfig
 
         BLACK_STEEL_DAMAGE = BUILDER
                 .comment(" Attack Damage Modifier for Black Steel weapons.  Requires restart.")
-                .defineInRange("blackSteelDamageModifier", 0, -10000, 10000);
+                .defineInRange("blackSteelDamageModifier", 3, -10000, 10000);
 
         BLACK_STEEL_SPEED = BUILDER
                 .comment(" Attack Speed Modifier for Black Steel weapons.  Requires restart.")
@@ -106,7 +106,7 @@ public class SCConfig
 
         ACCURSED_RAGE_CHANCE = BUILDER
                 .comment(" Chance on hit for Cursium weapons to stack the Accursed Rage effect on the user.  Set to 0 to disable.")
-                .defineInRange("accursedRageChance", 0.66, 0.0, 1.0);
+                .defineInRange("accursedRageChance", 0.5, 0.0, 1.0);
 
         ACCURSED_RAGE_EXTRA_DAMAGE = BUILDER
                 .comment(" Additional damage attackers do with Cursium weapons per level of Accursed Rage.")
@@ -240,11 +240,11 @@ public class SCConfig
                 .comment(" Pitch variation from 1.0 for custom weapon attack sounds.  For example: Set to 0.1, pitch will be random between 0.9 and 1.1.  Set to 0.0 for no variation.")
                 .defineInRange("customWeaponSoundsPitchVariation", 0.1, 0.0, 1.0);
 
-        USE_SPARTAN_EFFECTS = BUILDER
-                .comment(" If Spartan Weaponry: Cataclysm is installed, use its effects instead to avoid double-stacking.  The Blazing Brand effect will use Spartan Cataclysm's armor reduction config values as a result.")
-                .comment(" All other config values pertaining to effects will still be properly respected by both mods, allowing for different configurations.")
-                .comment(" HIGHLY RECOMMENDED TO KEEP SET TO TRUE - If false, two of the same effect could be applied simultaneously by using weapons from both mods :/")
-                .define("useSpartanCataclysmEffects", true);
+//        USE_SPARTAN_EFFECTS = BUILDER
+//                .comment(" If Spartan Weaponry: Cataclysm is installed, use its effects instead to avoid double-stacking.  The Blazing Brand effect will use Spartan Cataclysm's armor reduction config values as a result.")
+//                .comment(" All other config values pertaining to effects will still be properly respected by both mods, allowing for different configurations.")
+//                .comment(" HIGHLY RECOMMENDED TO KEEP SET TO TRUE - If false, two of the same effect could be applied simultaneously by using weapons from both mods :/")
+//                .define("useSpartanCataclysmEffects", true);
 
         BUILDER.pop();
         SPEC = BUILDER.build();
