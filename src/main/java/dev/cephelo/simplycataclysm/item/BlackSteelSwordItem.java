@@ -8,7 +8,7 @@ import net.sweenus.simplyswords.util.HelperMethods;
 
 public class BlackSteelSwordItem extends SwordItem {
     public BlackSteelSwordItem(int attackDamage, float attackSpeed) {
-        super(Tooltier.BLACK_STEEL, attackDamage + SCConfig.blackSteelDamageModifier, attackSpeed + SCConfig.blackSteelSpeedModifier, (new Item.Properties()));
+        super(Tooltier.BLACK_STEEL, new Item.Properties().attributes(SwordItem.createAttributes(Tooltier.BLACK_STEEL, attackDamage + SCConfig.BLACK_STEEL_DAMAGE.get(), attackSpeed + SCConfig.BLACK_STEEL_SPEED.get())));
     }
 
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {

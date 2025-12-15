@@ -1,31 +1,31 @@
 package dev.cephelo.simplycataclysm.event;
 
+import dev.cephelo.simplycataclysm.SimplyCataclysm;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
+@EventBusSubscriber(modid = SimplyCataclysm.MODID)
 public class LivingHurtHandler {
     @SubscribeEvent
-    public static void onLivingHurt(LivingHurtEvent ev) {
+    public static void onLivingHurt(LivingDamageEvent.Pre ev) {
         DamageSource source = ev.getSource();
-        float dmgDealt = ev.getAmount();
+        float dmgDealt = ev.getOriginalDamage();
         LivingEntity target = ev.getEntity();
         if (dmgDealt != 0.0F && !source.is(DamageTypeTags.IS_PROJECTILE) && !source.is(DamageTypeTags.IS_FIRE) && !source.is(DamageTypeTags.IS_EXPLOSION) && (source.getMsgId().equals("player") || source.getMsgId().equals("mob"))) {
-            if (source.getDirectEntity() == source.getEntity() && source.getEntity() instanceof LivingEntity && target != null) {
-                LivingEntity attacker = (LivingEntity) source.getEntity();
+            if (source.getDirectEntity() == source.getEntity() && source.getEntity() instanceof LivingEntity attacker) {
                 ItemStack attackerStack = attacker.getMainHandItem();
                 if (!attackerStack.isEmpty()) {
                     Item attackerItem = attackerStack.getItem();
 
                     if (attackerItem instanceof IMeleeDamageCallback) {
                         dmgDealt = ((IMeleeDamageCallback) attackerItem).modifyDamageDealt(dmgDealt, source, attacker, target);
-                        ev.setAmount(dmgDealt);
+                        ev.setNewDamage(dmgDealt);
                     }
                 }
             }

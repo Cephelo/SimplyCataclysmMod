@@ -7,14 +7,15 @@ import dev.cephelo.simplycataclysm.sounds.SCModSounds;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
 import net.sweenus.simplyswords.SimplySwords;
 import org.slf4j.Logger;
 
@@ -25,19 +26,18 @@ public class SimplyCataclysm
     public static final Logger LOGGER = LogUtils.getLogger();
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    public static final RegistryObject<CreativeModeTab> SC_WEAPONS_TAB = CREATIVE_MODE_TABS.register("sc_weapons", () -> CreativeModeTab.builder()
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SC_WEAPONS_TAB = CREATIVE_MODE_TABS.register("sc_weapons", () -> CreativeModeTab.builder()
             .withTabsBefore(SimplySwords.SIMPLYSWORDS.getKey())
             .icon(() -> ModItems.IGNITIUM_CHAKRAM.get().getDefaultInstance())
             .title(Component.translatable("itemGroup.simplycataclysm.sc_weapons"))
             .displayItems((parameters, output) -> {
-                for (RegistryObject<Item> item : ModItems.ITEMS.getEntries())
+                for (DeferredHolder<Item, ? extends Item> item : ModItems.ITEMS.getEntries())
                     output.accept(item.get());
             }).build());
 
-    public SimplyCataclysm()
+    public SimplyCataclysm(IEventBus modEventBus, ModContainer modContainer)
     {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, SCConfig.SPEC);
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        modContainer.registerConfig(ModConfig.Type.SERVER, SCConfig.SPEC);
 
         ModEffects.register(modEventBus);
         SCModSounds.register(modEventBus);
@@ -45,6 +45,6 @@ public class SimplyCataclysm
         CREATIVE_MODE_TABS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
+        NeoForge.EVENT_BUS.register(this);
     }
 }

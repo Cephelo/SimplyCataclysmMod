@@ -1,19 +1,15 @@
 package dev.cephelo.simplycataclysm;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.config.ModConfigEvent;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
-@Mod.EventBusSubscriber(modid = SimplyCataclysm.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SCConfig
 {
-    private static final ForgeConfigSpec.BooleanValue
+    public static final ModConfigSpec.BooleanValue
             MECHA_SMITE_REGEN_THRESHOLD_TYPE,
             CUSTOM_SOUNDS,
             USE_SPARTAN_EFFECTS;
 
-    private static final ForgeConfigSpec.DoubleValue
+    public static final ModConfigSpec.DoubleValue
             ACCURSED_RAGE_CHANCE,
             ACCURSED_RAGE_EXTRA_DAMAGE,
             BLAZING_BRAND_CHANCE,
@@ -28,7 +24,7 @@ public class SCConfig
             MECHA_SMITE_REGEN_THRESHOLD_PERCENT,
             PITCH_VARIATION;
 
-    private static final ForgeConfigSpec.IntValue
+    public static final ModConfigSpec.IntValue
             ANCIENT_METAL_DAMAGE,
             BLACK_STEEL_DAMAGE,
             CURSIUM_DAMAGE,
@@ -54,10 +50,10 @@ public class SCConfig
             MECHA_SMITE_REGEN_DURATION,
             MECHA_SMITE_REGEN_AMP;
 
-    static final ForgeConfigSpec SPEC;
+    static final ModConfigSpec SPEC;
 
     static {
-        final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+        final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
         BUILDER.comment(" SPARTAN CATACLYSM CONFIG\n");
 
@@ -254,103 +250,7 @@ public class SCConfig
         SPEC = BUILDER.build();
     }
 
-    public static int ancientMetalDamageModifier;
-    public static int ancientMetalSpeedModifier;
-    public static int blackSteelDamageModifier;
-    public static int blackSteelSpeedModifier;
-    public static int cursiumDamageModifier;
-    public static int cursiumSpeedModifier;
-    public static int ignitiumDamageModifier;
-    public static int ignitiumSpeedModifier;
-    public static int witheriteDamageModifier;
-    public static int witheriteSpeedModifier;
-
-    public static double accursedRageChance;
-    public static double blazingBrandChance;
-    public static double blazingBrandLifestealChance;
-    public static double accursedRageExtraDamage;
-    public static int accursedRageDuration;
-    public static int accursedRageMaximum;
-    public static double lifestealMultiplier;
-    public static int blazingBrandDuration;
-    public static int blazingBrandMaximum;
-    public static double blazingBrandArmorReduction;
-    public static double blazingBrandArmorToughnessReduction;
-
-    public static double mechaPulseChargeChance;
-    public static int mechaPulseStunThreshold;
-    public static int mechaPulseCooldown;
-    public static int mechaPulseStunDuration;
-    public static int mechaPulseEffectDuration;
-    public static double mechaPulseExtraDamage;
-
-    public static double mechaSmiteChance;
-    public static double mechaSmiteRegenChance;
-    public static int mechaSmiteFireDuration;
-    public static int mechaSmiteWitherDuration;
-    public static int mechaSmiteWitherAmplifier;
-    public static boolean mechaSmiteRegenThresholdType;
-    public static double mechaSmiteRegenThresholdPercent;
-    public static int mechaSmiteRegenThreshold;
-    public static int mechaSmiteRegenDuration;
-    public static int mechaSmiteRegenAmplifier;
-
-    public static boolean customSounds;
-    public static double pitchVariation;
-
-    public static boolean useSpartanEffects;
-
-    @SubscribeEvent
-    static void onLoad(final ModConfigEvent event)
-    {
-        ancientMetalDamageModifier = ANCIENT_METAL_DAMAGE.get();
-        ancientMetalSpeedModifier = ANCIENT_METAL_SPEED.get();
-        blackSteelDamageModifier = BLACK_STEEL_DAMAGE.get();
-        blackSteelSpeedModifier = BLACK_STEEL_SPEED.get();
-        cursiumDamageModifier = CURSIUM_DAMAGE.get();
-        cursiumSpeedModifier = CURSIUM_SPEED.get();
-        ignitiumDamageModifier = IGNITIUM_DAMAGE.get();
-        ignitiumSpeedModifier = IGNITIUM_SPEED.get();
-        witheriteDamageModifier = WITHERITE_DAMAGE.get();
-        witheriteSpeedModifier = WITHERITE_SPEED.get();
-
-        accursedRageChance = ACCURSED_RAGE_CHANCE.get();
-        blazingBrandChance = BLAZING_BRAND_CHANCE.get();
-        blazingBrandLifestealChance = BLAZING_BRAND_LIFESTEAL_CHANCE.get();
-        accursedRageExtraDamage = ACCURSED_RAGE_EXTRA_DAMAGE.get();
-        accursedRageDuration = ACCURSED_RAGE_DURATION.get();
-        accursedRageMaximum = ACCURSED_RAGE_MAXIMUM.get();
-        lifestealMultiplier = LIFESTEAL_MULTIPLIER.get();
-        blazingBrandDuration = BLAZING_BRAND_DURATION.get();
-        blazingBrandMaximum = BLAZING_BRAND_MAXIMUM.get();
-        blazingBrandArmorReduction = BLAZING_BRAND_ARMOR_REDUCTION.get();
-        blazingBrandArmorToughnessReduction = BLAZING_BRAND_ARMOR_TOUGHNESS_REDUCTION.get();
-
-        mechaPulseChargeChance = MECHA_PULSE_CHARGE_CHANCE.get();
-        mechaPulseStunThreshold = MECHA_PULSE_STUN_THRESHOLD.get();
-        mechaPulseCooldown = MECHA_PULSE_COOLDOWN.get();
-        mechaPulseStunDuration = MECHA_PULSE_STUN_DURATION.get();
-        mechaPulseEffectDuration = MECHA_PULSE_EFFECT_DURATION.get();
-        mechaPulseExtraDamage = MECHA_PULSE_EXTRA_DAMAGE.get();
-
-        mechaSmiteChance = MECHA_SMITE_CHANCE.get();
-        mechaSmiteRegenChance = MECHA_SMITE_REGEN_CHANCE.get();
-        mechaSmiteFireDuration = MECHA_SMITE_FIRE_DURATION.get();
-        mechaSmiteWitherDuration = MECHA_SMITE_WITHER_DURATION.get();
-        mechaSmiteWitherAmplifier = MECHA_SMITE_WITHER_AMP.get();
-        mechaSmiteRegenThresholdType = MECHA_SMITE_REGEN_THRESHOLD_TYPE.get();
-        mechaSmiteRegenThresholdPercent = MECHA_SMITE_REGEN_THRESHOLD_PERCENT.get();
-        mechaSmiteRegenThreshold = MECHA_SMITE_REGEN_THRESHOLD.get();
-        mechaSmiteRegenDuration = MECHA_SMITE_REGEN_DURATION.get();
-        mechaSmiteRegenAmplifier = MECHA_SMITE_REGEN_AMP.get();
-
-        customSounds = CUSTOM_SOUNDS.get();
-        pitchVariation = PITCH_VARIATION.get();
-
-        useSpartanEffects = USE_SPARTAN_EFFECTS.get();
-    }
-
     public static float getRandomPitch() {
-        return (float)((Math.random() * pitchVariation * 2.0) - pitchVariation + 1.0);
+        return (float)((Math.random() * PITCH_VARIATION.get() * 2.0) - PITCH_VARIATION.get() + 1.0);
     }
 }

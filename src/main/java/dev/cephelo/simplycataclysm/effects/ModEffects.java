@@ -3,30 +3,33 @@ package dev.cephelo.simplycataclysm.effects;
 import com.github.L_Ender.cataclysm.init.ModEffect;
 import dev.cephelo.simplycataclysm.SCConfig;
 import dev.cephelo.simplycataclysm.SimplyCataclysm;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.client.extensions.common.IClientMobEffectExtensions;
+import net.neoforged.neoforge.common.EffectCure;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.util.List;
+import java.util.Set;
+import java.util.function.Consumer;
 
 public class ModEffects {
     public static final DeferredRegister<MobEffect> MOB_EFFECTS =
-            DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, SimplyCataclysm.MODID);
+            DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, SimplyCataclysm.MODID);
 
-    public static final RegistryObject<MobEffect> ACCURSED_RAGE = MOB_EFFECTS.register("accursed_rage",
+    public static final DeferredHolder<MobEffect, MobEffect> ACCURSED_RAGE = MOB_EFFECTS.register("accursed_rage",
             () -> new AccursedMarkEffect(MobEffectCategory.BENEFICIAL, 0x39d2b2));
-    public static final RegistryObject<MobEffect> BLAZING_BRAND_CUSTOM = MOB_EFFECTS.register("blazing_brand",
+    public static final DeferredHolder<MobEffect, MobEffect> BLAZING_BRAND_CUSTOM = MOB_EFFECTS.register("blazing_brand",
             () -> new BlazingBrandCustomEffect(MobEffectCategory.HARMFUL, 0xdc143c));
-    public static final RegistryObject<MobEffect> PULSE_CHARGE = MOB_EFFECTS.register("pulse_charge",
+    public static final DeferredHolder<MobEffect, MobEffect> PULSE_CHARGE = MOB_EFFECTS.register("pulse_charge",
             () -> new StunPulseChargeEffect(MobEffectCategory.BENEFICIAL, 0xae2334));
-    public static final RegistryObject<MobEffect> PULSE_COOLDOWN = MOB_EFFECTS.register("pulse_cooldown",
+    public static final DeferredHolder<MobEffect, MobEffect> PULSE_COOLDOWN = MOB_EFFECTS.register("pulse_cooldown",
             () -> new StunPulseCooldownEffect(MobEffectCategory.NEUTRAL, 0x575757));
 
     public static void register(IEventBus bus) {
@@ -41,17 +44,20 @@ public class ModEffects {
     }
 
     public static class BlazingBrandCustomEffect extends MobEffect {
+        private static final ResourceLocation ARMOR_DOWN_ID =  ResourceLocation.fromNamespaceAndPath(SimplyCataclysm.MODID,"blazing_brand_armor");
+        private static final ResourceLocation ARMOR_TOUGHNESS_DOWN_ID =  ResourceLocation.fromNamespaceAndPath(SimplyCataclysm.MODID,"blazing_brand_armor_toughness");
+
         public BlazingBrandCustomEffect(MobEffectCategory category, int color) {
             super(category, color);
-            this.addAttributeModifier(Attributes.ARMOR, "31f5a158-63cf-4201-a260-2dc9368fa4bb", -1.0D * SCConfig.blazingBrandArmorReduction, AttributeModifier.Operation.MULTIPLY_TOTAL);
-            this.addAttributeModifier(Attributes.ARMOR_TOUGHNESS, "e4e1dccc-6477-4e95-8303-e98a7c33f83f", -1.0D * SCConfig.blazingBrandArmorToughnessReduction, AttributeModifier.Operation.MULTIPLY_TOTAL);
+            this.addAttributeModifier(Attributes.ARMOR, ARMOR_DOWN_ID, -1.0D * SCConfig.BLAZING_BRAND_ARMOR_REDUCTION.get(), AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+            this.addAttributeModifier(Attributes.ARMOR_TOUGHNESS, ARMOR_TOUGHNESS_DOWN_ID, -1.0D * SCConfig.BLAZING_BRAND_ARMOR_TOUGHNESS_REDUCTION.get(), AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
         }
 
-        @Override
-        public void applyEffectTick(LivingEntity entity, int amplifier) {}
+        // @Override
+        // public void applyEffectTick(LivingEntity entity, int amplifier) {}
 
-        @Override
-        public boolean isDurationEffectTick(int duration, int amplifier) {
+        @Override // isDurationEffectTick
+        public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
             return duration > 0;
         }
 
@@ -60,9 +66,10 @@ public class ModEffects {
             return "effect.cataclysm.blazing_brand";
         }
 
+        @SuppressWarnings("removal")
         @Override // Use Cataclysm's Blazing Brand icon
-        public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientMobEffectExtensions> consumer) {
-            consumer.accept(new CustomIconMobEffectExtensions(ModEffect.EFFECTBLAZING_BRAND.get()));
+        public void initializeClient(Consumer<IClientMobEffectExtensions> consumer) {
+            consumer.accept(new CustomIconMobEffectExtensions(ModEffect.EFFECTBLAZING_BRAND));
         }
 
     }
@@ -79,9 +86,9 @@ public class ModEffects {
         public StunPulseCooldownEffect(MobEffectCategory category, int color) {
             super(category, color);
         }
-        @Override
-        public List<ItemStack> getCurativeItems() {
-            return List.of(); // Cannot be removed with milk
+        @Override // getCurativeItems
+        public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {
+            // Cannot be removed with milk
         }
     }
 }

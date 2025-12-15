@@ -7,12 +7,13 @@ import net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraftforge.client.extensions.common.IClientMobEffectExtensions;
+import net.neoforged.neoforge.client.extensions.common.IClientMobEffectExtensions;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class CustomIconMobEffectExtensions implements IClientMobEffectExtensions {
-    private final MobEffect effect;
+    private final DeferredHolder<MobEffect, MobEffect> effect;
 
-    public CustomIconMobEffectExtensions(MobEffect eff) {
+    public CustomIconMobEffectExtensions(DeferredHolder<MobEffect, MobEffect> eff) {
         this.effect = eff;
     }
 
