@@ -6,6 +6,7 @@ import dev.cephelo.simplycataclysm.effects.ModEffects;
 import dev.cephelo.simplycataclysm.sounds.SCModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -16,6 +17,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.Unbreakable;
 import net.sweenus.simplyswords.util.HelperMethods;
 
 import java.util.List;
@@ -24,7 +26,8 @@ public class IgnitiumSwordItem extends SwordItem {
     protected static final ChatFormatting[] titleformat = new ChatFormatting[]{ChatFormatting.GOLD};
 
     public IgnitiumSwordItem(int attackDamage, float attackSpeed) {
-        super(ModItems.IGNITIUM_TIER, new Item.Properties().attributes(SwordItem.createAttributes(ModItems.IGNITIUM_TIER, attackDamage + SCConfig.IGNITIUM_DAMAGE.get(), attackSpeed + SCConfig.IGNITIUM_SPEED.get())).fireResistant().rarity(Rarity.EPIC));
+        super(ModItems.IGNITIUM_TIER, new Item.Properties().attributes(SwordItem.createAttributes(ModItems.IGNITIUM_TIER, attackDamage + SCConfig.IGNITIUM_DAMAGE.get(), attackSpeed + SCConfig.IGNITIUM_SPEED.get()))
+                .fireResistant().rarity(Rarity.EPIC).component(DataComponents.UNBREAKABLE, new Unbreakable(false)));
     }
 
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {

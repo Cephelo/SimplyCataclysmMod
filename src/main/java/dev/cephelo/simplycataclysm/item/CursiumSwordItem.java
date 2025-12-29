@@ -8,6 +8,7 @@ import dev.cephelo.simplycataclysm.event.IMeleeDamageCallback;
 import dev.cephelo.simplycataclysm.sounds.SCModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
@@ -15,6 +16,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.Unbreakable;
 import net.sweenus.simplyswords.util.HelperMethods;
 
 import java.util.List;
@@ -23,7 +25,8 @@ public class CursiumSwordItem extends SwordItem implements IMeleeDamageCallback 
     protected static final ChatFormatting[] titleformat = new ChatFormatting[]{ChatFormatting.AQUA};
 
     public CursiumSwordItem(int attackDamage, float attackSpeed) {
-        super(ModItems.CURSIUM_TIER, new Item.Properties().attributes(SwordItem.createAttributes(ModItems.CURSIUM_TIER, attackDamage + SCConfig.CURSIUM_DAMAGE.get(), attackSpeed + SCConfig.CURSIUM_SPEED.get())).fireResistant().rarity(Rarity.EPIC));
+        super(ModItems.CURSIUM_TIER, new Item.Properties().attributes(SwordItem.createAttributes(ModItems.CURSIUM_TIER, attackDamage + SCConfig.CURSIUM_DAMAGE.get(), attackSpeed + SCConfig.CURSIUM_SPEED.get()))
+                .fireResistant().rarity(Rarity.EPIC).component(DataComponents.UNBREAKABLE, new Unbreakable(false)));
     }
 
     public float modifyDamageDealt(float baseDamage, DamageSource source, LivingEntity attacker, LivingEntity victim) {
