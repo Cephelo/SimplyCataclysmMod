@@ -72,7 +72,14 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="simplyswords"
 mandatory=true
-versionRange="[1.56.0,)"
+versionRange="[1.70.2,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="fzzy_config"
+mandatory=true
+versionRange="[0.7.7,)"
 ordering="AFTER"
 side="BOTH"
 

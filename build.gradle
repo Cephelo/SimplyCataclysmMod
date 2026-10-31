@@ -137,17 +137,31 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    implementation fg.deobf("curse.maven:simply-swords-659887:$simplyswords_version")
-    implementation fg.deobf("curse.maven:architectury-api-419699:$architectury_version")
-    implementation fg.deobf("curse.maven:cloth-config-348521:$clothconfig_version")
 
-    implementation fg.deobf("curse.maven:lionfish-api-1001614:$lionfish_version")
-    implementation fg.deobf("curse.maven:curios-309927:$curios_version")
+    def modsDir = findProperty('modsDir') ?: System.getenv('MODS_DIR')
+    if (modsDir == null) {
+        throw new GradleException('Set -PmodsDir=<path to mods folder> or MODS_DIR')
+    }
+    def findModJar = { String fileName ->
+        def matches = new File(modsDir).listFiles()?.findAll {
+            it.isFile() && it.name.endsWith(fileName)
+        }
+        if (!matches) {
+            throw new GradleException("Missing $fileName in $modsDir")
+        }
+        return matches.first()
+    }
 
-    implementation fg.deobf("curse.maven:lendercataclysm-551586:$cataclysm_version")
+    implementation fg.deobf(files(findModJar('simplyswords-forge-neoforge-1.70.2-1.20.1.jar')))
+    implementation fg.deobf(files(findModJar('architectury-9.2.14-forge.jar')))
+    implementation fg.deobf(files(findModJar('cloth-config-11.1.136-forge.jar')))
+    implementation fg.deobf(files(findModJar('lionfishapi-3.0.jar')))
+    implementation fg.deobf(files(findModJar('curios-forge-5.14.1+1.20.1.jar')))
+    implementation fg.deobf(files(findModJar('L_Enders_Cataclysm-3.31.jar')))
+    implementation fg.deobf(files(findModJar('fzzy_config-0.7.7+1.20.1+forge.jar')))
 
     // If Spartan Weaponry: Cataclysm is installed, this mod will use its effects instead to avoid double buffs
-    compileOnly fg.deobf("curse.maven:spartancataclysm-1379475:$spartancataclysm_version")
+    compileOnly fg.deobf(files(findModJar('spartancataclysm-1.1.2+1.20.1+forge.jar')))
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
